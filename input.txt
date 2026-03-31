@@ -1,0 +1,12 @@
+inicio
+
+INT x;
+
+se(x){
+    escreva("Hello world!");
+}
+senao{
+    escreva("Good bye world!");
+}
+
+fim
