@@ -3,7 +3,7 @@ grammar lingua;
 program
     :  
     declaracao_variavel*
-    lista_comandoss*
+    lista_comandos*
     ;
 
 /* Definição da estrutura dos comandos */
