@@ -17,7 +17,7 @@ comando_ler: LEIA AP ID FP PV;
 comando_se: SE AP ID cond_op? FP AC lista_comandos lista_comandos* FC comando_senao?;
 comando_senao: SENAO condicao? AC lista_comandos lista_comandos* FC comando_senao?;
 comando_enquanto: ENQUANTO AP ID cond_op? FP AC lista_comandos lista_comandos* FC;
-comando_definir: ID IGUAL ID (expr_aritmeticas ID)*;
+comando_definir: ID IGUAL ID (expr_aritmeticas ID)* PV;
 
 /* Definição de expressões*/
 expr_condicionais: '=='
