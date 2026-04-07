@@ -17,6 +17,7 @@ comando_ler: LEIA AP ID FP PV;
 comando_se: SE AP ID cond_op? FP AC lista_comandos lista_comandos* FC comando_senao?;
 comando_senao: SENAO condicao? AC lista_comandos lista_comandos* FC comando_senao?;
 comando_enquanto: ENQUANTO AP ID cond_op? FP AC lista_comandos lista_comandos* FC;
+comando_definir: ID IGUAL ID (expr_aritmeticas ID)*;
 
 /* Definição de expressões*/
 expr_condicionais: '=='
@@ -46,8 +47,6 @@ lista_comandos: comando_escreva
 WS: [ \t\r\n] -> skip ;
 
 /* Definição de palavras e simbolos*/
-INICIO:'inicio';
-FIM:'fim';
 LEIA:'leia';
 ESCREVA:'escreva';
 SE:'se';
@@ -59,6 +58,7 @@ FP:')';
 PV:';';
 AC:'{';
 FC:'}';
+IGUAL:'=';
 
 /* Definição de tipos de variáveis */
 STRING: '"' .*? '"' ;
