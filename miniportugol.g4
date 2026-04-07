@@ -41,6 +41,7 @@ lista_comandos: comando_escreva
               | comando_ler
               | comando_se
               | comando_enquanto
+              | comando_definir
               ;
 
 /* Regra de skip*/
