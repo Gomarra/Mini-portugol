@@ -1,42 +1,22 @@
 grammar miniportugol;
 
 program
-    :
-    declaracao_variavel*
-    lista_comandos*
+    : declaracao_variavel* lista_comandos* EOF
     ;
 
-/* Definição da estrutura dos comandos */
-cond_op: (expr_aritmeticas ID)? expr_condicionais ID;
-condicao: AP ID cond_op? FP;
+/* Definição de expressões */
+expr: termo ( (MAIS | MENOS) termo )*;
+termo: fator ( (MULT | DIV) fator )*;
+fator: INT
+     | STRING
+     | ID 
+     | AP expr FP ;
+
+/* Blocos */
+bloco: AC lista_comandos* FC;
+condicao: expr expr_condicionais expr;
 
 /* Comandos */
-declaracao_variavel: tipos_variaveis ID ID* PV;
-comando_escreva: ESCREVA AP STRING FP PV;
-comando_ler: LEIA AP ID FP PV;
-comando_se: SE AP ID cond_op? FP AC lista_comandos lista_comandos* FC comando_senao?;
-comando_senao: SENAO condicao? AC lista_comandos lista_comandos* FC comando_senao?;
-comando_enquanto: ENQUANTO AP ID cond_op? FP AC lista_comandos lista_comandos* FC;
-comando_definir: ID IGUAL ID (expr_aritmeticas ID)* PV;
-
-/* Definição de expressões*/
-expr_condicionais: '=='
-                 | '&&'
-                 | '||'
-                 | '=!'
-                 ;
-
-expr_aritmeticas: '+'
-                | '-'
-                | '/'
-                ;
-
-/* Definição das variáveis*/
-tipos_variaveis: 'INT'
-               | 'String'
-               ;
-
-/* Declarações*/
 lista_comandos: comando_escreva
               | comando_ler
               | comando_se
@@ -44,23 +24,58 @@ lista_comandos: comando_escreva
               | comando_definir
               ;
 
-/* Regra de skip*/
-WS: [ \t\r\n] -> skip ;
+declaracao_variavel: tipos_variaveis ID (VIRGULA ID)* PV;
 
-/* Definição de palavras e simbolos*/
+comando_escreva: ESCREVA AP expr FP PV;
+comando_ler: LEIA AP ID FP PV;
+
+comando_se: SE AP condicao FP bloco (SENAO bloco)?;
+comando_enquanto: ENQUANTO AP condicao FP bloco;
+
+comando_definir: ID IGUAL expr (',' expr)* PV;
+
+tipos_variaveis: VAR_INT
+               | VAR_STRING
+               ;
+
+expr_condicionais: '=='
+                 | '!='
+                 | '&&'
+                 | '||'
+                 | '>'
+                 | '=>'
+                 | '<'
+                 | '=<'
+                 ;
+
+/* Tokens */
+
 LEIA:'leia';
 ESCREVA:'escreva';
 SE:'se';
 SENAO:'senao';
 ENQUANTO:'enquanto';
-PARA:'para';
+
+VAR_INT: 'INT';
+VAR_STRING: 'String';
+
+MULT:'*';
+DIV:'/';
+MAIS:'+';
+MENOS:'-';
+
+IGUAL:'=';
 AP:'(';
 FP:')';
 PV:';';
 AC:'{';
 FC:'}';
-IGUAL:'=';
+VIRGULA:',';
 
-/* Definição de tipos de variáveis */
+INT: [0-9]+;
 STRING: '"' .*? '"' ;
-ID: 'a'..'z'|'0'..'9' ('a'..'z'|'0'..'9')*;
+ID: [a-zA-Z_] [a-zA-Z0-9_]* ;
+
+WS: [ \t\r\n]+ -> skip;
+
+ERRO_CARACTERE: . ; // Captura qualquer caractere individual não definido acima

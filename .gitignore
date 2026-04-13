@@ -1,2 +1,8 @@
 # Python virtual environment
 .venv
+
+# ANTLR generated files
+.antlr
+
+# Python generated files
+__pycache__

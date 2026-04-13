@@ -1,4 +1,4 @@
-# Generated from miniportugol.g4 by ANTLR 4.13.1
+# Generated from miniportugol.g4 by ANTLR 4.13.2
 from antlr4 import *
 if "." in __name__:
     from .miniportugolParser import miniportugolParser
@@ -17,12 +17,39 @@ class miniportugolListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by miniportugolParser#cond_op.
-    def enterCond_op(self, ctx:miniportugolParser.Cond_opContext):
+    # Enter a parse tree produced by miniportugolParser#expr.
+    def enterExpr(self, ctx:miniportugolParser.ExprContext):
         pass
 
-    # Exit a parse tree produced by miniportugolParser#cond_op.
-    def exitCond_op(self, ctx:miniportugolParser.Cond_opContext):
+    # Exit a parse tree produced by miniportugolParser#expr.
+    def exitExpr(self, ctx:miniportugolParser.ExprContext):
+        pass
+
+
+    # Enter a parse tree produced by miniportugolParser#termo.
+    def enterTermo(self, ctx:miniportugolParser.TermoContext):
+        pass
+
+    # Exit a parse tree produced by miniportugolParser#termo.
+    def exitTermo(self, ctx:miniportugolParser.TermoContext):
+        pass
+
+
+    # Enter a parse tree produced by miniportugolParser#fator.
+    def enterFator(self, ctx:miniportugolParser.FatorContext):
+        pass
+
+    # Exit a parse tree produced by miniportugolParser#fator.
+    def exitFator(self, ctx:miniportugolParser.FatorContext):
+        pass
+
+
+    # Enter a parse tree produced by miniportugolParser#bloco.
+    def enterBloco(self, ctx:miniportugolParser.BlocoContext):
+        pass
+
+    # Exit a parse tree produced by miniportugolParser#bloco.
+    def exitBloco(self, ctx:miniportugolParser.BlocoContext):
         pass
 
 
@@ -32,6 +59,15 @@ class miniportugolListener(ParseTreeListener):
 
     # Exit a parse tree produced by miniportugolParser#condicao.
     def exitCondicao(self, ctx:miniportugolParser.CondicaoContext):
+        pass
+
+
+    # Enter a parse tree produced by miniportugolParser#lista_comandos.
+    def enterLista_comandos(self, ctx:miniportugolParser.Lista_comandosContext):
+        pass
+
+    # Exit a parse tree produced by miniportugolParser#lista_comandos.
+    def exitLista_comandos(self, ctx:miniportugolParser.Lista_comandosContext):
         pass
 
 
@@ -71,15 +107,6 @@ class miniportugolListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by miniportugolParser#comando_senao.
-    def enterComando_senao(self, ctx:miniportugolParser.Comando_senaoContext):
-        pass
-
-    # Exit a parse tree produced by miniportugolParser#comando_senao.
-    def exitComando_senao(self, ctx:miniportugolParser.Comando_senaoContext):
-        pass
-
-
     # Enter a parse tree produced by miniportugolParser#comando_enquanto.
     def enterComando_enquanto(self, ctx:miniportugolParser.Comando_enquantoContext):
         pass
@@ -98,24 +125,6 @@ class miniportugolListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by miniportugolParser#expr_condicionais.
-    def enterExpr_condicionais(self, ctx:miniportugolParser.Expr_condicionaisContext):
-        pass
-
-    # Exit a parse tree produced by miniportugolParser#expr_condicionais.
-    def exitExpr_condicionais(self, ctx:miniportugolParser.Expr_condicionaisContext):
-        pass
-
-
-    # Enter a parse tree produced by miniportugolParser#expr_aritmeticas.
-    def enterExpr_aritmeticas(self, ctx:miniportugolParser.Expr_aritmeticasContext):
-        pass
-
-    # Exit a parse tree produced by miniportugolParser#expr_aritmeticas.
-    def exitExpr_aritmeticas(self, ctx:miniportugolParser.Expr_aritmeticasContext):
-        pass
-
-
     # Enter a parse tree produced by miniportugolParser#tipos_variaveis.
     def enterTipos_variaveis(self, ctx:miniportugolParser.Tipos_variaveisContext):
         pass
@@ -125,12 +134,12 @@ class miniportugolListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by miniportugolParser#lista_comandos.
-    def enterLista_comandos(self, ctx:miniportugolParser.Lista_comandosContext):
+    # Enter a parse tree produced by miniportugolParser#expr_condicionais.
+    def enterExpr_condicionais(self, ctx:miniportugolParser.Expr_condicionaisContext):
         pass
 
-    # Exit a parse tree produced by miniportugolParser#lista_comandos.
-    def exitLista_comandos(self, ctx:miniportugolParser.Lista_comandosContext):
+    # Exit a parse tree produced by miniportugolParser#expr_condicionais.
+    def exitExpr_condicionais(self, ctx:miniportugolParser.Expr_condicionaisContext):
         pass
 
 

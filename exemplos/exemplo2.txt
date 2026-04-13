@@ -1,0 +1,9 @@
+INT n, i;
+
+n = 5;
+i = 0;
+
+enquanto(i != n){
+    escreva(i+1);
+    i = 1 + i;
+}
