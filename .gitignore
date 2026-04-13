@@ -6,3 +6,6 @@
 
 # Python generated files
 __pycache__
+
+# Generated logs
+logs

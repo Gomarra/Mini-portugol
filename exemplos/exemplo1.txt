@@ -4,5 +4,5 @@ se(x == 1){
     escreva("Hello world!");
 }
 senao{
-    escreva("Good bye world!").;
+    escreva("Good bye world!")[][];
 }

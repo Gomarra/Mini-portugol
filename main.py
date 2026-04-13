@@ -32,7 +32,7 @@ def processar_lexico(arquivo_fonte):
     input_stream = FileStream(arquivo_fonte, encoding='utf-8')
     lexer = miniportugolLexer(input_stream)
     
-    log_filename = "scanner_log.txt"
+    log_filename = "logs/scanner_log.txt"
     
     # Abrimos o arquivo de log para escrita (limpa o anterior)
     with open(log_filename, "w", encoding="utf-8") as f_log:
